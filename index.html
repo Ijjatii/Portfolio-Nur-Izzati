@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nur Izzati Binti Ismail - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark-blue:#1a3a5c;
+  --dark-blue-2:#1e4a7a;
+  --dark-blue-3:#1a5296;
+  --soft-blue:#4a90d9;
+  --soft-blue-2:#6aaee8;
+  --soft-blue-3:#93c5fd;
+  --soft-blue-4:#bfdbfe;
+  --pale:#e8f2fc;
+  --pale-2:#f0f7ff;
+  --white:#ffffff;
+  --text:#1a3a5c;
+  --muted:#4a6e90;
+  --border:#c2d9f0;
+  --border-dark:rgba(255,255,255,0.12);
+  --radius:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--pale-2);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 3rem;
+  background:rgba(24,55,95,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border-dark);
+}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--soft-blue-2);letter-spacing:0.02em}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.82rem;font-weight:500;letter-spacing:0.08em;color:rgba(255,255,255,0.9);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--soft-blue-2)}
+
+/* HERO */
+#hero{
+  min-height:100vh;
+  padding:100px 3rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+  background:linear-gradient(135deg,#1e3f6e 0%,#1a5296 55%,#2166b8 100%);
+  position:relative;overflow:hidden;
+}
+#hero::before{
+  content:'';position:absolute;top:-120px;right:-120px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(74,144,217,0.18) 0%,transparent 70%);
+  pointer-events:none;
+}
+#hero::after{
+  content:'';position:absolute;bottom:-80px;left:-80px;
+  width:350px;height:350px;border-radius:50%;
+  background:radial-gradient(circle,rgba(106,174,232,0.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-text{position:relative;z-index:2}
+.hero-greeting{
+  font-size:1rem;font-weight:500;color:var(--soft-blue-2);
+  letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem;
+  display:flex;align-items:center;gap:0.6rem;
+}
+.hero-greeting span{display:inline-block;animation:wave 2s ease-in-out infinite}
+@keyframes wave{0%,100%{transform:rotate(0deg)}30%{transform:rotate(20deg)}60%{transform:rotate(-10deg)}}
+.hero-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,5vw,3.8rem);font-weight:600;
+  line-height:1.1;color:var(--white);margin-bottom:1rem;
+}
+.hero-name em{font-style:italic;color:var(--soft-blue)}
+.hero-tagline{font-size:1rem;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:2rem;max-width:420px}
+.hero-tagline strong{color:white}
+.hero-contacts{display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem}
+.hero-contact-item{display:flex;align-items:center;gap:0.7rem;font-size:0.88rem;color:rgba(255,255,255,0.75)}
+.hero-contact-item a{color:rgba(255,255,255,0.75);text-decoration:none;transition:color .2s}
+.hero-contact-item a:hover{color:var(--soft-blue-2)}
+.contact-icon{
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.contact-icon img{width:16px;height:16px;object-fit:contain}
+.hero-socials{display:flex;gap:0.8rem;flex-wrap:wrap}
+.social-btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.55rem 1.2rem;border-radius:50px;
+  font-size:0.8rem;font-weight:600;letter-spacing:0.05em;
+  text-decoration:none;transition:all .25s;
+}
+.social-btn img{width:16px;height:16px;object-fit:contain}
+.social-btn.primary{background:var(--soft-blue);color:white}
+.social-btn.primary:hover{background:var(--dark-blue-3);transform:translateY(-2px)}
+.social-btn.ghost{background:rgba(255,255,255,0.08);color:white;border:1.5px solid rgba(255,255,255,0.2)}
+.social-btn.ghost:hover{background:rgba(255,255,255,0.14);transform:translateY(-2px)}
+.hero-photo-side{display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
+.photo-blob{
+  width:420px;height:450px;
+  border-radius:60% 40% 55% 45% / 55% 45% 55% 45%;
+  background:linear-gradient(135deg,#a8d4f5 0%,#7bb8e8 40%,#4a90d9 100%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  animation:blobFloat 6s ease-in-out infinite;
+  box-shadow:0 20px 60px rgba(74,144,217,0.35);
+}
+@keyframes blobFloat{
+  0%,100%{border-radius:60% 40% 55% 45% / 55% 45% 55% 45%}
+  50%{border-radius:45% 55% 45% 55% / 45% 55% 45% 55%}
+}
+.photo-blob img{
+  width:390px;height:390px;border-radius:50%;
+  object-fit:cover;
+  border:6px solid rgba(168,212,245,0.9);
+  box-shadow:0 0 0 12px rgba(168,212,245,0.25),0 12px 40px rgba(74,144,217,0.3);
+}
+.photo-upload-hint{
+  position:absolute;bottom:20px;
+  background:rgba(10,22,40,0.75);
+  padding:0.4rem 1rem;border-radius:50px;
+  font-size:0.72rem;color:white;font-weight:600;
+  backdrop-filter:blur(8px);
+}
+.hero-badge{
+  position:absolute;top:20px;right:-10px;
+  background:rgba(255,255,255,0.15);padding:0.6rem 1rem;
+  border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.15);
+  backdrop-filter:blur(8px);
+  font-size:0.75rem;font-weight:700;color:white;
+  border:1px solid rgba(168,212,245,0.4);
+}
+.hero-badge span{display:block;font-size:1.1rem;font-weight:800;color:white}
+
+/* SECTIONS COMMON */
+section{padding:5rem 3rem}
+.sec-label{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--soft-blue);font-weight:700;margin-bottom:0.5rem}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,3vw,2.4rem);font-weight:600;
+  color:var(--dark-blue);margin-bottom:3rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.sec-title::after{content:'';flex:1;height:1.5px;background:linear-gradient(to right,var(--soft-blue-4),transparent);max-width:300px}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.show{opacity:1;transform:none}
+
+/* ABOUT */
+#about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:280px 1fr;gap:4rem;align-items:start}
+.about-photo{width:240px;height:280px;border-radius:24px;background:linear-gradient(135deg,var(--pale),var(--pale-2));display:flex;align-items:center;justify-content:center;overflow:hidden;border:3px solid var(--border);position:relative}
+.about-photo img{width:100%;height:100%;object-fit:cover;border-radius:21px}
+.about-content p{font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:1.2rem}
+.about-content strong{color:var(--text);font-weight:600}
+.about-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
+.about-tag{padding:0.35rem 0.9rem;border-radius:50px;background:var(--pale);color:var(--dark-blue-3);font-size:0.78rem;font-weight:600;border:1px solid var(--border)}
+
+/* EDUCATION */
+#education{background:var(--pale-2)}
+.edu-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.edu-card{background:white;border-radius:var(--radius);padding:2rem;border:1.5px solid var(--border);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.edu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(to right,var(--soft-blue-2),var(--dark-blue-3))}
+.edu-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(10,22,40,0.12)}
+.edu-icon{width:80px;height:80px;margin-bottom:1rem;display:flex;align-items:center;justify-content:center}
+.edu-icon img{width:72px;height:72px;object-fit:contain}
+.edu-degree{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--text);margin-bottom:0.3rem}
+.edu-school{font-size:0.85rem;color:var(--muted);margin-bottom:1rem}
+.edu-row{display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap}
+.edu-cgpa{background:var(--soft-blue);color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 0.8rem;border-radius:50px}
+.edu-dean{background:var(--pale);color:var(--dark-blue-3);font-size:0.78rem;font-weight:600;padding:0.3rem 0.8rem;border-radius:50px;border:1px solid var(--border)}
+.edu-date{font-size:0.78rem;color:var(--muted);margin-top:0.8rem}
+
+/* EXPERIENCE */
+#experience{background:var(--white)}
+.exp-list{display:flex;flex-direction:column;gap:1.5rem}
+.exp-card{
+  background:var(--pale-2);border-radius:var(--radius);
+  border:1.5px solid var(--border);
+  overflow:hidden;
+  transition:transform .25s,box-shadow .25s;
+  display:grid;
+  grid-template-columns:320px 1fr;
+  min-height:220px;
+}
+.exp-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(10,22,40,0.12)}
+.exp-photo{
+  width:100%;height:100%;min-height:220px;
+  overflow:hidden;
+  background:var(--pale);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.exp-photo img{width:100%;height:100%;object-fit:contain;display:block}
+.exp-photo-fallback{font-size:3.5rem}
+.exp-body{padding:1.8rem 2rem;display:flex;flex-direction:column;justify-content:center}
+.exp-date{font-size:0.72rem;color:var(--soft-blue);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.3rem}
+.exp-role{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:0.2rem}
+.exp-org{font-size:0.82rem;color:var(--muted);margin-bottom:0.8rem}
+.exp-points{list-style:none;display:flex;flex-direction:column;gap:0.35rem}
+.exp-points li{font-size:0.88rem;color:var(--text);padding-left:1.2rem;position:relative;line-height:1.6}
+.exp-points li::before{content:'•';position:absolute;left:0;color:var(--soft-blue)}
+
+/* LEADERSHIP */
+#leadership{background:var(--pale-2)}
+.lead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.lead-card{background:var(--white);border-radius:var(--radius);border:1.5px solid var(--border);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.lead-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(10,22,40,0.1)}
+
+/* CAROUSEL — tall enough to show full portrait photos */
+.carousel{position:relative;width:100%;height:300px;overflow:hidden;background:var(--pale)}
+.carousel-track{display:flex;height:100%;transition:transform .35s ease}
+.carousel-slide{
+  flex:0 0 100%;height:100%;
+  background:var(--pale);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+/* object-fit:contain so full photo always visible, no crop */
+.carousel-slide img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:top center;
+  display:block;
+}
+.fallback-emoji{font-size:3rem}
+.carousel-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(255,255,255,0.9);
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;color:var(--dark-blue-3);
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
+  transition:background .2s,transform .2s;z-index:10;
+}
+.carousel-btn:hover{background:white;transform:translateY(-50%) scale(1.1)}
+.carousel-btn.prev{left:8px}
+.carousel-btn.next{right:8px}
+.carousel-dots{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);display:flex;gap:5px}
+.carousel-dot{width:6px;height:6px;border-radius:50%;background:rgba(100,140,180,0.45);cursor:pointer;transition:background .2s,transform .2s;border:none;padding:0}
+.carousel-dot.active{background:var(--soft-blue);transform:scale(1.3)}
+
+.lead-body{padding:1.4rem 1.6rem}
+.lead-top{display:flex;align-items:flex-start;gap:0.8rem;margin-bottom:0.8rem}
+.lead-icon{
+  width:38px;height:38px;border-radius:10px;flex-shrink:0;
+  background:var(--pale);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;font-size:0.85rem;color:var(--dark-blue-3);
+}
+.lead-date{font-size:0.7rem;color:var(--soft-blue);font-weight:700;letter-spacing:0.06em;text-transform:uppercase}
+.lead-role{font-size:0.95rem;font-weight:700;color:var(--text);margin:0.2rem 0}
+.lead-org{font-size:0.8rem;color:var(--muted)}
+.lead-desc{font-size:0.84rem;color:var(--muted);line-height:1.7}
+
+/* PROJECTS */
+#projects{background:var(--white)}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.proj-card{background:var(--pale-2);border-radius:var(--radius);border:1.5px solid var(--border);overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.proj-card:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(10,22,40,0.12)}
+.proj-card.expanded{grid-column:1/-1}
+.proj-thumb{width:100%;height:140px;background:linear-gradient(135deg,var(--pale),var(--soft-blue-4));display:flex;align-items:center;justify-content:center;font-size:3rem;transition:height .4s ease;position:relative;overflow:hidden}
+.proj-card.expanded .proj-thumb{height:200px}
+.proj-thumb-label{position:absolute;bottom:10px;right:12px;background:rgba(10,22,40,0.75);font-size:0.68rem;font-weight:700;color:var(--soft-blue-2);padding:0.2rem 0.6rem;border-radius:50px}
+.proj-body{padding:1.5rem}
+.proj-date{font-size:0.7rem;color:var(--soft-blue);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem}
+.proj-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:0.6rem}
+.proj-desc{font-size:0.84rem;color:var(--muted);line-height:1.7}
+.proj-expand{display:none;margin-top:1rem}
+.proj-card.expanded .proj-expand{display:block}
+.proj-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.8rem}
+.proj-tag{padding:0.25rem 0.7rem;border-radius:50px;background:var(--pale);color:var(--dark-blue-3);font-size:0.72rem;font-weight:600}
+.proj-github{display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;padding:0.5rem 1.2rem;background:var(--dark-blue);color:white;border-radius:50px;font-size:0.78rem;font-weight:600;text-decoration:none;transition:background .2s}
+.proj-github:hover{background:var(--dark-blue-3)}
+.proj-click-hint{font-size:0.72rem;color:var(--soft-blue);margin-top:0.5rem;display:flex;align-items:center;gap:0.3rem}
+
+/* VOLUNTEER */
+#volunteer{background:var(--pale-2)}
+.vol-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.vol-card{background:var(--white);border-radius:var(--radius);border:1.5px solid var(--border);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.vol-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(10,22,40,0.1)}
+.vol-body{padding:1.3rem 1.5rem}
+.vol-top{display:flex;align-items:center;gap:0.8rem;margin-bottom:0.5rem}
+.vol-icon{width:36px;height:36px;border-radius:10px;flex-shrink:0;background:var(--pale);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.vol-title{font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.2rem}
+.vol-org{font-size:0.8rem;color:var(--muted);margin-bottom:0.4rem}
+.vol-desc{font-size:0.82rem;color:var(--muted);line-height:1.6}
+.vol-date{display:inline-block;margin-top:0.7rem;font-size:0.7rem;font-weight:700;color:var(--soft-blue);letter-spacing:0.06em;text-transform:uppercase}
+
+/* SKILLS */
+#skills{background:var(--white)}
+.skills-wrapper{display:flex;flex-direction:column;gap:3rem}
+.skills-top-row{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.skills-lang-row{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:1rem;border-top:1.5px solid var(--border)}
+.skill-group-title{font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft-blue);margin-bottom:1.2rem}
+.skill-items{display:flex;flex-direction:column;gap:1rem}
+.skill-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.4rem}
+.skill-name{font-size:0.9rem;font-weight:600;color:var(--text)}
+.skill-lvl{font-size:0.72rem;font-weight:700;color:var(--soft-blue);text-transform:uppercase;letter-spacing:0.06em}
+.skill-bar{height:5px;background:var(--pale);border-radius:50px;overflow:hidden}
+.skill-fill{height:100%;background:linear-gradient(to right,var(--soft-blue-2),var(--dark-blue-3));border-radius:50px;width:0;transition:width 1.2s ease}
+.lang-cards{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center}
+.lang-card{padding:1.2rem 2.5rem;border-radius:var(--radius);background:var(--pale-2);border:1.5px solid var(--border);text-align:center;min-width:140px}
+.lang-flag{font-size:1.8rem;margin-bottom:0.4rem}
+.lang-name{font-weight:700;color:var(--text);font-size:0.9rem}
+.lang-level{font-size:0.75rem;color:var(--muted);margin-top:0.2rem}
+
+/* REFERENCES */
+#references{background:var(--pale-2)}
+.ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.ref-card{background:var(--white);border-radius:var(--radius);padding:1.8rem;border:1.5px solid var(--border);display:flex;gap:1.2rem;align-items:flex-start}
+.ref-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--soft-blue),var(--dark-blue-3));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;color:white;flex-shrink:0}
+.ref-name{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:0.2rem}
+.ref-title{font-size:0.82rem;color:var(--soft-blue-2);font-weight:600;margin-bottom:0.6rem}
+.ref-detail{font-size:0.82rem;color:var(--muted);line-height:1.8}
+.ref-detail a{color:var(--dark-blue-3);text-decoration:none}
+
+/* CONTACT */
+#contact{background:var(--white)}
+.contact-wrapper{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start}
+.contact-info p{font-size:1rem;line-height:1.85;color:var(--muted);margin-bottom:2rem}
+.contact-links{display:flex;flex-direction:column;gap:1rem}
+.clink{display:flex;align-items:center;gap:0.9rem;text-decoration:none;color:var(--text);padding:0.9rem 1.1rem;border-radius:var(--radius);background:var(--pale-2);border:1.5px solid var(--border);font-size:0.88rem;transition:all .2s}
+.clink:hover{background:var(--pale);border-color:var(--soft-blue-2);transform:translateX(4px)}
+.clink-icon{font-size:1.1rem;width:28px;text-align:center}
+.contact-form{display:flex;flex-direction:column;gap:1.2rem}
+.form-group label{display:block;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem}
+.form-group input,.form-group textarea{width:100%;padding:0.85rem 1rem;border:1.5px solid var(--border);border-radius:10px;background:var(--pale-2);font-family:'Nunito',sans-serif;font-size:0.9rem;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--soft-blue);box-shadow:0 0 0 3px rgba(74,144,217,0.15)}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn-send{display:flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.9rem 2rem;background:linear-gradient(135deg,var(--soft-blue),var(--dark-blue-3));color:white;border:none;border-radius:50px;font-family:'Nunito',sans-serif;font-size:0.88rem;font-weight:700;letter-spacing:0.06em;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,22,40,0.3)}
+
+/* FOOTER */
+footer{background:#1a3a5c;color:rgba(255,255,255,0.5);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem}
+footer a{color:rgba(255,255,255,0.45);text-decoration:none}
+footer a:hover{color:var(--soft-blue-3)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  #hero{grid-template-columns:1fr;padding:90px 1.5rem 3rem;gap:2.5rem}
+  .hero-photo-side{order:-1}
+  .photo-blob{width:300px;height:320px}
+  .photo-blob img{width:220px;height:220px}
+  section{padding:3.5rem 1.5rem}
+  .about-grid,.edu-cards,.projects-grid,.skills-top-row,.ref-grid,.contact-wrapper,.exp-card{grid-template-columns:1fr}
+  .exp-photo{min-height:200px}
+  .form-row{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:0.6rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Nur Izzati</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#volunteer">Volunteer</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text fade-in">
+    <div class="hero-greeting"><span></span> Hi there, I'm</div>
+    <h1 class="hero-name"><em>Nur Izzati</em><br>Binti Ismail</h1>
+    <p class="hero-tagline">
+      Currently an Information Technology student at Universiti Teknologi PETRONAS, passionate about web development, data science &amp; UI/UX. Seeking internship from <strong>Sept 2026 – April 2027</strong>.
+    </p>
+    <div class="hero-contacts">
+      <div class="hero-contact-item">
+        <div class="contact-icon"><img src="phone.png" alt="Phone" width="16"></div>
+        <a href="tel:0169643013">016-964 3013</a>
+      </div>
+      <div class="hero-contact-item">
+        <div class="contact-icon"><img src="email.png" alt="Email" width="16"></div>
+        <a href="mailto:nur_22011757@utp.edu.my">nur_22011757@utp.edu.my</a>
+      </div>
+      <div class="hero-contact-item">
+        <div class="contact-icon"><img src="location.png" alt="Location" width="16"></div>
+        <span>Kulim, Kedah, Malaysia</span>
+      </div>
+    </div>
+    <div class="hero-socials">
+      <a href="https://www.linkedin.com/in/nur-izzati-binti-ismail-152966411" target="_blank" class="social-btn primary">
+        <img src="linkedin.png" alt="LinkedIn" width="16"> LinkedIn
+      </a>
+      <a href="#contact" class="social-btn ghost">
+        <img src="email.png" alt="Email" width="16"> Let's Connect
+      </a>
+    </div>
+  </div>
+  <div class="hero-photo-side fade-in">
+    <div style="position:relative">
+      <div class="photo-blob">
+        <img src="2.jpeg" alt="Nur Izzati">
+        <div class="photo-upload-hint">Internship Seeker </div>
+      </div>
+      <div class="hero-badge">CGPA <span>3.78</span> Dean's List </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-label">01</div>
+  <h2 class="sec-title">About Me</h2>
+  <div class="about-grid fade-in">
+    <div><div class="about-photo"><img src="1.jpeg" alt="Nur Izzati"></div></div>
+    <div class="about-content">
+      <p>Hi! I am <strong>Nur Izzati Binti Ismail</strong>, a second year <strong>Bachelor of Information Technology (Hons)</strong> student at Universiti Teknologi PETRONAS, with a minor in Corporate Management.</p>
+      <p>I am passionate about <strong>web development, data science, and UI/UX design</strong>. I enjoy building things that are both functional and visually beautiful. Beyond coding, I am a natural leader.I have managed club finances, led team-building programmes, and organised events for 60+ participants.</p>
+      <p>I believe in continuous learning, collaboration, and bringing fresh energy to every team I join. I am actively looking for an internship where I can grow and make a real impact.</p>
+      <div class="about-tags">
+        <span class="about-tag">Web Development</span>
+        <span class="about-tag">Data Science</span>
+        <span class="about-tag">UI/UX Design</span>
+        <span class="about-tag">Python</span>
+        <span class="about-tag">Leadership</span>
+        <span class="about-tag">Problem Solving</span>
+        <span class="about-tag">Team Collaboration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="sec-label">02</div>
+  <h2 class="sec-title">Education</h2>
+  <div class="edu-cards fade-in">
+    <div class="edu-card">
+      <div class="edu-icon"><img src="utp.png" alt="UTP"></div>
+      <div class="edu-degree">Bachelor of Information Technology (Hons)</div>
+      <div class="edu-school">Universiti Teknologi PETRONAS, Seri Iskandar, Perak<br>Minor in Corporate Management</div>
+      <div class="edu-row">
+        <span class="edu-cgpa">CGPA 3.78</span>
+        <span class="edu-dean">Dean's List (All Semesters)</span>
+      </div>
+      <div class="edu-date">Sept 2024 – Dec 2027 (Expected)</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon"><img src="utp.png" alt="UTP"></div>
+      <div class="edu-degree">Foundation in Information Technology</div>
+      <div class="edu-school">Universiti Teknologi PETRONAS, Seri Iskandar, Perak</div>
+      <div class="edu-row">
+        <span class="edu-cgpa">CGPA 3.85</span>
+        <span class="edu-dean">Dean's List (All Semesters)</span>
+      </div>
+      <div class="edu-date">Sept 2023 – Aug 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK EXPERIENCE -->
+<section id="experience">
+  <div class="sec-label">03</div>
+  <h2 class="sec-title">Work Experience</h2>
+  <div class="exp-list fade-in">
+    <div class="exp-card">
+      <div class="exp-photo">
+        <img src="we.jpeg" alt="Work Experience" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="exp-photo-fallback" style="display:none;width:100%;height:100%;align-items:center;justify-content:center">📐</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-date">March 2025 – Nov 2025</div>
+        <div class="exp-role">Additional Mathematics Tutor</div>
+        <div class="exp-org">Hustle Club, Universiti Teknologi PETRONAS</div>
+        <ul class="exp-points">
+          <li>Conducted tutoring sessions for SPM students, simplifying Add Maths concepts</li>
+          <li>Assisted students through structured lesson planning and continuous guidance</li>
+          <li>Improved students' problem-solving skills and exam performance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="sec-label">04</div>
+  <h2 class="sec-title">Leadership &amp; Activities</h2>
+  <div class="lead-grid fade-in">
+
+    <div class="lead-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="famjam1.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🏕️'}))"></div>
+          <div class="carousel-slide"><img src="famjam2.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🏕️'}))"></div>
+          <div class="carousel-slide"><img src="famjam3.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🏕️'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-top">
+          <div class="lead-icon">01</div>
+          <div>
+            <div class="lead-date">May 2026 – June 2026</div>
+            <div class="lead-role">Supervisor | UTPHost Retreat '26</div>
+            <div class="lead-org">UTPHost, UTP</div>
+          </div>
+        </div>
+        <div class="lead-desc">Supervised activities for 60 participants, improving event flow efficiency by 80% through better time management and task coordination.</div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="resume.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'📋'}))"></div>
+          <div class="carousel-slide"><img src="resume2.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'📋'}))"></div>
+          <div class="carousel-slide"><img src="resume3.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'📋'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-top">
+          <div class="lead-icon">02</div>
+          <div>
+            <div class="lead-date">Jan 2026 – Apr 2026</div>
+            <div class="lead-role">Assistant Project Director | Resume Workshop</div>
+            <div class="lead-org">Harmoni Club, UTP</div>
+          </div>
+        </div>
+        <div class="lead-desc">Advised in organising workshop for 60+ participants. Collaborated with 10+ committee members on registration, scheduling, and programme flow.</div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="treasurer1.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="treasurer3.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+        </div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-top">
+          <div class="lead-icon">03</div>
+          <div>
+            <div class="lead-date">Sept 2025 – Present</div>
+            <div class="lead-role">Treasurer | UTPHost Club</div>
+            <div class="lead-org">UTPHost, UTP</div>
+          </div>
+        </div>
+        <div class="lead-desc">Managed budgeting and financial documentation for 10+ activities annually, tracking funds exceeding RM3,000. Coordinated with 30 committee members.</div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="bootcamp1.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="bootcamp2.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="bootcamp3.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-top">
+          <div class="lead-icon">04</div>
+          <div>
+            <div class="lead-date">June 2026</div>
+            <div class="lead-role">Media Committee | Host Excellence Bootcamp: Playbook Development</div>
+            <div class="lead-org"> UTPHost, UTP</div>
+          </div>
+        </div>
+        <div class="lead-desc">Handled on-site content creation, photography, and videography for the official playbook development sessions. Developed creative social media interactions, including live updates and gamified audience quizzes to elevate the event's digital presence.</div>
+      </div>
+    </div> 
+
+        <div class="lead-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="2drone1.JPG" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="2drone2.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="2drone3.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-top">
+          <div class="lead-icon">05</div>
+          <div>
+            <div class="lead-date">Feb 2026 – April 2026</div>
+            <div class="lead-role">Assistant Head of Public Relations & Sponsorship | D.R.O.N.E. 2.0</div>
+            <div class="lead-org">AeroXpert, UTP </div>
+          </div>
+        </div>
+        <div class="lead-desc"> Managed corporate outreach by researching and pitching sponsorship proposals to over 100 targeted companies and vendors. Balanced dynamic roles during the event as a facilitator to guide participants and an usher to coordinate the closing ceremonies.</div>
+      </div>
+    </div> 
+
+        <div class="lead-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="1drone1.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="1drone2.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="1drone3.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-top">
+          <div class="lead-icon">06</div>
+          <div>
+            <div class="lead-date">Dec 2025 – Feb 2026</div>
+            <div class="lead-role">Assistant Head of Welfare & Facilitator | D.R.O.N.E. 1.0</div>
+            <div class="lead-org"> AeroXpert, UTP</div>
+          </div>
+        </div>
+        <div class="lead-desc">Responsible for monitoring the health, safety, and overall well-being of all participants and committee members. Led emergency contingency plans on-site, provided immediate first-aid support when needed, and facilitated group sessions to ensure smooth program execution.</div>
+      </div>
+    </div> 
+
+    <div class="lead-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="instep1.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌐'}))"></div>
+          <div class="carousel-slide"><img src="instep2.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌐'}))"></div>
+          <div class="carousel-slide"><img src="instep3.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌐'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-top">
+          <div class="lead-icon">07</div>
+          <div>
+            <div class="lead-date">Nov 2025 – Feb 2026</div>
+            <div class="lead-role">Treasurer | Inter-University Programme</div>
+            <div class="lead-org">UTPHost, UTP</div>
+          </div>
+        </div>
+        <div class="lead-desc">Handled budgeting for an event involving 60 participants from MRSM KT, INSTEP, UMT, and industry representatives. Coordinated in-kind sponsorship.</div>
+      </div>
+    </div>
+  
+    <div class="lead-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="rugby1.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="rugby2.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="rugby3.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-top">
+          <div class="lead-icon">08</div>
+          <div>
+            <div class="lead-date">May 2025 – July 2025</div>
+            <div class="lead-role">Technical & Games Committee | UTP Super Rugby 10s Championship '25</div>
+            <div class="lead-org"> Drillers Rugby Club, UTP</div>
+          </div>
+        </div>
+        <div class="lead-desc">Managed technical operations including scorekeeping, timekeeping, and match marshalling for a large-scale tournament involving 86 teams and 1000+ participants. Ensured seamless back-to-back match execution through strict coordination and attention to detail.</div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="hackathon1.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="hackathon2.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="hackathon3.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-top">
+          <div class="lead-icon">09</div>
+          <div>
+            <div class="lead-date">May 2025 – June 2025</div>
+            <div class="lead-role">Hackathon Participant | Microsoft ASEAN AI for Accessibility (AI4A)</div>
+            <div class="lead-org"> UTP</div>
+          </div>
+        </div>
+        <div class="lead-desc">Collaborated in a fast-paced team environment and pitched an innovative, AI-powered assistive platform designed to enhance learning experiences for people with dyslexia. Engaged with industry mentors to validate the technical viability and accessibility impact of the proposed project.</div>
+      </div>
+    </div> 
+
+    <div class="lead-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="fesco1.JPG" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="fesco2.JPG" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+          <div class="carousel-slide"><img src="fesco3.JPG" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'💰'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-top">
+          <div class="lead-icon">10</div>
+          <div>
+            <div class="lead-date">Jan 2025 – June 2025</div>
+            <div class="lead-role">PR Committee & Liaison Officer | FESCO '25</div>
+            <div class="lead-org"> UTP</div>
+          </div>
+        </div>
+        <div class="lead-desc">Spearheaded school engagement initiatives by communicating with 30+ educational institutions to market and invite participation. Facilitated smooth event-day operations as a Liaison Officer, handling communications between stakeholders and the festival committee.</div>
+      </div>
+    </div> 
+    
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-label">05</div>
+  <h2 class="sec-title">Academic Projects</h2>
+  <div class="projects-grid" id="projectsGrid">
+
+    <!-- PROJECT 1: Bank Customer Loan Prediction -->
+    <div class="proj-card" onclick="toggleProject(this)">
+      <!-- Single image display wrapper matching your project styling layout -->
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="correlation.png" alt="Bank Customer Loan Prediction Preview" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'📊'}))">
+          </div>
+        </div>
+        <div class="proj-thumb-label" style="position: absolute; bottom: 10px; left: 10px; z-index: 2;">Data Science</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-date">Jan 2026 – Mar 2026</div>
+        <div class="proj-title">Bank Customer Loan Prediction</div>
+        <div class="proj-desc">Predictive model using k-NN to classify customers likely to accept personal loans.</div>
+        <div class="proj-click-hint">👆 Click to expand</div>
+        <div class="proj-expand">
+          <div class="proj-desc">Engineered an end-to-end machine learning pipeline using R programming to predict banking customer behavior. Conducted extensive data preprocessing, addressed class imbalances, and performed strategic feature engineering to optimize model inputs. Evaluated classification performance by testing multiple distance metrics and tuning hyperparameters through k-fold cross-validation. Leveraged comprehensive data visualization techniques to interpret decision boundaries, minimize false negatives, and maximize overall prediction accuracy for targeted marketing campaigns.</div>
+          <div class="proj-tags"><span class="proj-tag">R</span><span class="proj-tag">k-NN</span><span class="proj-tag">Machine Learning</span><span class="proj-tag">Data Visualization</span></div>
+          <a href="https://github.com/Ijjatii/Bank-Customer-Personal-Loan-Prediction" target="_blank" class="proj-github"><img src="github2.png" alt="GitHub" width="22"> View on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+        <!-- PROJECT 2: IoT Topology -->
+    <div class="proj-card" onclick="toggleProject(this)">
+      <!-- Single image display wrapper matching your project styling layout -->
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="iot.jpeg" alt="Secure Enterprise Network Design & Simulation" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'📊'}))">
+          </div>
+        </div>
+        <div class="proj-thumb-label" style="position: absolute; bottom: 10px; left: 10px; z-index: 2;">Internet of Things (IoT)</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-date">Jan 2026 – Mar 2026</div>
+        <div class="proj-title">IoT-Based Real-Time Aircraft Monitoring &amp; Geospatial Analytics</div>
+        <div class="proj-desc">Real-time IoT aviation surveillance system and dynamic tracking dashboard over Perak airspace.</div>
+        <div class="proj-click-hint">👆 Click to expand</div>
+        <div class="proj-expand">
+          <div class="proj-desc">Engineered an automated IoT-based aviation surveillance platform that ingests live data streams using the OpenSky API to track flights over the Perak region. Developed a lightweight web backend utilizing Python and Flask to manage data integration pipelines, while employing Pandas to structure historical flight records, compute density patterns, and run telemetry trend analyses. Integrated Leaflet.js to deliver a highly responsive, interactive geospatial map interface that updates coordinates asynchronously, providing live visualizations of altitude variations, heading vectors, and local airspace traffic metrics.</div>
+          <div class="proj-tags"><span class="proj-tag">IoT</span><span class="proj-tag">Python</span><span class="proj-tag">Leaflet.js</span><span class="proj-tag">Geospatial Analytics</span></div>
+          <a href= "https://github.com/Ijjatii/IoT-Based-Real-Time-Aircraft-Monitoring-and-Geospatial-Analytics-over-Perak-Malaysia" target="_blank" class="proj-github"><img src="github2.png" alt="GitHub" width="22"> View on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+        <!-- PROJECT 3: Information Assurance and Security Topology -->
+    <div class="proj-card" onclick="toggleProject(this)">
+      <!-- Single image display wrapper matching your project styling layout -->
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="ias.png" alt="Secure Enterprise Network Design & Simulation" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'📊'}))">
+          </div>
+        </div>
+        <div class="proj-thumb-label" style="position: absolute; bottom: 10px; left: 10px; z-index: 2;">Information Assurance and Security</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-date">Sept 2025 – Nov 2025</div>
+        <div class="proj-title">Secure Enterprise Network Design & Simulation</div>
+        <div class="proj-desc">Designed a multi-department enterprise network simulation featuring hybrid topologies and robust cybersecurity controls.</div>
+        <div class="proj-click-hint">👆 Click to expand</div>
+        <div class="proj-expand">
+          <div class="proj-desc">Designed and simulated a secure, scalable enterprise network across multiple corporate departments using a hybrid topology framework (Star, Tree, Ring, and Mesh). Engineered a robust security and management posture by configuring firewall access control lists (ACLs), secure remote access via SSH, and proactive monitoring with SNMP. Validated network resilience through rigorous end-to-end testing, troubleshooting, and a comprehensive cybersecurity risk assessment to guarantee high availability and data integrity.</div>
+          <div class="proj-tags"><span class="proj-tag">Cisco Packet Tracer</span><span class="proj-tag">Network Topologies</span><span class="proj-tag">Firewalls</span><span class="proj-tag">SSH</span><span class="proj-tag">SNMP</span></div>
+          <a href="https://github.com/Ijjatii/Secure-Enterprise-Network-Design-Cisco-Packet-Tracer-" target="_blank" class="proj-github"><img src="github2.png" alt="GitHub" width="22"> View on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: TRibagus Hotel Booking System (Using a Carousel for multiple UI screenshots) -->
+    <div class="proj-card" onclick="toggleProject(this)">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="figma.png" alt="Figma Prototype Screen 1" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🏨'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="event.stopPropagation(); moveCarousel(this,-1)">&#8249;</button>
+
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="event.stopPropagation(); goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="event.stopPropagation(); goToSlide(this,1)"></button>
+        </div>
+        <div class="proj-thumb-label" style="position: absolute; bottom: 10px; left: 10px; z-index: 2;">Human Computer Interaction (HCI)</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-date">Sept 2025 – Nov 2025</div>
+        <div class="proj-title">TRibagus Hotel Booking System</div>
+        <div class="proj-desc">Mobile app prototype designed in Figma based on Trivago booking concepts.</div>
+        <div class="proj-click-hint">👆 Click to expand</div>
+        <div class="proj-expand">
+          <div class="proj-desc">Architected a high-fidelity mobile application prototype in Figma by analyzing and adapting modern booking systems. Applied fundamental UI/UX and Human-Computer Interaction (HCI) principles to streamline complex user workflows and optimize conversion funnels. Conducted user persona research and iterative wireframing to produce a visually organized, accessible interface. Refined interactive navigation architectures and micro-interactions to significantly reduce cognitive load and enhance overall user engagement.</div>
+          <div class="proj-tags"><span class="proj-tag">Figma</span><span class="proj-tag">UI/UX</span><span class="proj-tag">HCI</span><span class="proj-tag">Mobile Design</span></div>
+          <a href="https://www.figma.com/design/wz81YiC6ntM3ykJBn6KN36/TRIBAGUS?node-id=0-1&t=nTaUQadhr7Aw6Chw-1" target="_blank" class="proj-github">⭐ View Project</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3: UTP Cafeteria Food Ordering System -->
+    <div class="proj-card" onclick="toggleProject(this)">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="foodapp.png" alt="System Preview" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🍽️'}))"></div>
+        </div>
+        <div class="proj-thumb-label" style="position: absolute; bottom: 10px; left: 10px; z-index: 2;">Web Application and Integrative Programming</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-date">Jan 2025 – Mar 2025</div>
+        <div class="proj-title">UTP Cafeteria Food Ordering System</div>
+        <div class="proj-desc">Full-stack web system for food ordering, menu display, and user management.</div>
+        <div class="proj-click-hint">👆 Click to expand</div>
+        <div class="proj-expand">
+          <div class="proj-desc">Developed a dynamic, full-stack web application designed to centralize and automate cafeteria ordering workflows. Engineered a responsive front-end interface using HTML, CSS, and JavaScript, ensuring cross-device compatibility. Developed robust back-end systems in PHP to handle complex functionalities, including secure user authentication, real-time database management for menu configurations, and transactional order tracking to ensure seamless system interoperability.</div>
+          <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span><span class="proj-tag">PHP</span></div>
+          <a href="http://waipfoodordering.atwebpages.com/login.php" target="_blank" class="proj-github">⭐ View Project</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Telekung website System -->
+    <div class="proj-card" onclick="toggleProject(this)">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="oop.jpeg" alt="System Preview" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🍽️'}))"></div>
+        </div>
+        <div class="proj-thumb-label" style="position: absolute; bottom: 10px; left: 10px; z-index: 2;">Object Oriented Programming</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-date">Jan 2025 – Mar 2025</div>
+        <div class="proj-title">Cahaya Telekung Ecommerce Website</div>
+        <div class="proj-desc">OOP-based ASP.NET e-commerce platform for telekung sales, featuring product browsing, cart management, and secure checkout.</div>
+        <div class="proj-click-hint">👆 Click to expand</div>
+        <div class="proj-expand">
+          <div class="proj-desc">An enterprise-grade, Object-Oriented (OOP) e-commerce web application developed using the ASP.NET framework, specifically tailored for the online sale of traditional telekung products. The system bridges the gap between traditional retail and modern digital commerce by providing customers with a seamless, intuitive, and highly secure online shopping experience.</div>
+          <div class="proj-tags"><span class="proj-tag">C#</span><span class="proj-tag">ASP.NET</span></div>
+          <a href="https://github.com/Ijjatii/Telekung-Ecommerce-Website" target="_blank" class="proj-github"><img src="github2.png" alt="GitHub" width="22"> View on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 4: Task Schedule & Reminder System -->
+    <div class="proj-card" onclick="toggleProject(this)">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="sp.png" alt="C++ Console App Preview" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'⏰'}))"></div>
+        </div>
+        <div class="proj-thumb-label" style="position: absolute; bottom: 10px; left: 10px; z-index: 2;">Structured Programming</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-date">Sept 2024 – Dec 2024</div>
+        <div class="proj-title">Task Schedule &amp; Reminder System</div>
+        <div class="proj-desc">Task scheduling and reminder application to manage daily tasks and deadlines.</div>
+        <div class="proj-click-hint">👆 Click to expand</div>
+        <div class="proj-expand">
+          <div class="proj-desc">Engineered a console-based task management application in C++ designed to streamline daily scheduling and deadline tracking. Leveraged fundamental structured programming principles and modular architecture to build efficient control flows, user menu systems, and input handling mechanics. Implemented data structure routines for sorting and prioritizing urgent deadlines, while establishing robust debugging techniques to eliminate memory leaks, handle exceptions, and ensure reliable execution logic throughout the system's operational lifecycles.</div>
+          <div class="proj-tags"><span class="proj-tag">C++</span><span class="proj-tag">OOP</span><span class="proj-tag">System Design</span><span class="proj-tag">Algorithms</span></div>
+          <a href="https://github.com/Ijjatii/Task-Schedule-Reminder-System" target="_blank" class="proj-github"><img src="github2.png" alt="GitHub" width="22"> View on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card" onclick="toggleProject(this)">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="database.png" alt="C++ Console App Preview" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'⏰'}))"></div>
+        </div>
+        <div class="proj-thumb-label" style="position: absolute; bottom: 10px; left: 10px; z-index: 2;">Database Systems</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-date">Sept 2024 – Dec 2024</div>
+        <div class="proj-title">DBS: FITNESS MEMBERSHIP</div>
+        <div class="proj-desc">Relational database system for member registrations, trainer schedules, and class attendance tracking.</div>
+        <div class="proj-click-hint">👆 Click to expand</div>
+        <div class="proj-expand">
+          <div class="proj-desc">A comprehensive, relational database system designed to streamline the operations of a modern fitness center or gym. The system structures and automates data management for membership plans, trainer schedules, class attendance, health tracking, equipment maintenance, and financial billing, providing a high-performance backend solution for fitness business administrators.</div>
+          <div class="proj-tags"><span class="proj-tag">Oracle</span><span class="proj-tag">MySQL</span><span class="proj-tag">Database</span><span class="proj-tag">Data Cleaning</span></div>
+          <a href="https://github.com/Ijjatii/Fitness-Club-Membership-Database" target="_blank" class="proj-github"><img src="github2.png" alt="GitHub" width="22"> View on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section id="volunteer">
+  <div class="sec-label">06</div>
+  <h2 class="sec-title">Volunteer Experience</h2>
+  <div class="vol-list fade-in">
+
+    <div class="vol-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="iftarr1.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌙'}))"></div>
+          <div class="carousel-slide"><img src="iftar2.JPG" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌙'}))"></div>
+          <div class="carousel-slide"><img src="iftar3.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌙'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="vol-body">
+        <div class="vol-top"><div class="vol-icon">01</div><div class="vol-title">Iftar Kasih Programme</div></div>
+        <div class="vol-org">UTPHost, Universiti Teknologi PETRONAS</div>
+        <div class="vol-desc">Participated in community iftar involving 30 orphaned children. Assisted with meal distribution, event coordination, and donation distribution.</div>
+        <div class="vol-date">Jan – Mar 2026</div>
+      </div>
+    </div>
+
+    <div class="vol-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="bubur1.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🍲'}))"></div>
+          <div class="carousel-slide"><img src="bubur2.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🍲'}))"></div>
+          <div class="carousel-slide"><img src="bubur3.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🍲'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="vol-body">
+        <div class="vol-top"><div class="vol-icon">02</div><div class="vol-title">CSR Bubur Lambuk I'hya Ramadhan</div></div>
+        <div class="vol-org">Army Club, Universiti Teknologi PETRONAS</div>
+        <div class="vol-desc">Assisted in preparing and cooking bubur lambuk for 100+ members of the public. Coordinated food preparation at the mosque with a 20-member team.</div>
+        <div class="vol-date">March 2026</div>
+      </div>
+    </div>
+
+    <div class="vol-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="sultan1.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌟'}))"></div>
+          <div class="carousel-slide"><img src="sultan2.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌟'}))"></div>
+          <div class="carousel-slide"><img src="sultan3.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌟'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="vol-body">
+        <div class="vol-top"><div class="vol-icon">03</div><div class="vol-title">Majlis Sambutan Nuzul Quran Negeri Perak & Iftar Programme</div></div>
+        <div class="vol-org">Universiti Teknologi PETRONAS</div>
+        <div class="vol-desc">Contributed as a volunteer usher for a high-profile state-level religious event. Managed guest relations by welcoming attendees, coordinating structured seating arrangements, and directing crowd flow to ensure a smooth and organized program execution throughout the evening. </div>
+        <div class="vol-date">March 2026</div>
+      </div>
+    </div>
+
+        <div class="vol-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="convo3.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌟'}))"></div>
+          <div class="carousel-slide"><img src="convo2.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌟'}))"></div>
+          <div class="carousel-slide"><img src="convo1.jpeg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌟'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="vol-body">
+        <div class="vol-top"><div class="vol-icon">04</div><div class="vol-title">UTP 25th Convocation Ceremony</div></div>
+        <div class="vol-org">Universiti Teknologi PETRONAS</div>
+        <div class="vol-desc">Facilitated guest relations for thousands of attendees during the university's prestigious graduation ceremony. Managed crowd movement, resolved on-site enquiries, and coordinated seating layouts to ensure a seamless and memorable experience for graduates and their families. </div>
+        <div class="vol-date">October 2025</div>
+      </div>
+    </div>
+
+        <div class="vol-card">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="jakoa1.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌟'}))"></div>
+          <div class="carousel-slide"><img src="jakoa2.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌟'}))"></div>
+          <div class="carousel-slide"><img src="jakoa3.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-emoji',textContent:'🌟'}))"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(this,0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(this,2)"></button>
+        </div>
+      </div>
+      <div class="vol-body">
+        <div class="vol-top"><div class="vol-icon">05</div><div class="vol-title">JAKOA STEM & Outreach Motivational Programme</div></div>
+        <div class="vol-org">UTP & JAKOA Daerah Perak Tengah & Hilir Perak</div>
+        <div class="vol-desc">Facilitated a STEM-focused outreach and motivational program for 180 indigenous (Orang Asli) students from 5 regional schools. Led interactive, hands-on learning activities including a university wide treasure hunt and mapping challenge to spark interest in higher education, technology, and STEM fields. </div>
+        <div class="vol-date">May 2024</div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-label">07</div>
+  <h2 class="sec-title">Skills &amp; Languages</h2>
+  <div class="skills-wrapper fade-in">
+    <div class="skills-top-row">
+      <div>
+        <div class="skill-group-title">Technical Skills</div>
+        <div class="skill-items">
+          <div><div class="skill-row"><span class="skill-name">Web Development (HTML/CSS/JS/PHP)</span><span class="skill-lvl">Intermediate</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+          <div><div class="skill-row"><span class="skill-name">C++ / Java / Python</span><span class="skill-lvl">Intermediate</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+          <div><div class="skill-row"><span class="skill-name">Data Science &amp; Machine Learning</span><span class="skill-lvl">Intermediate</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
+          <div><div class="skill-row"><span class="skill-name">UI/UX Design (Figma)</span><span class="skill-lvl">Intermediate</span></div><div class="skill-bar"><div class="skill-fill" data-w="87"></div></div></div>
+          <div><div class="skill-row"><span class="skill-name">Microsoft Office Suite</span><span class="skill-lvl">Advanced</span></div><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">Soft Skills</div>
+        <div class="skill-items">
+          <div><div class="skill-row"><span class="skill-name">Leadership</span><span class="skill-lvl">Advanced</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+          <div><div class="skill-row"><span class="skill-name">Communication</span><span class="skill-lvl">Advanced</span></div><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+          <div><div class="skill-row"><span class="skill-name">Team Collaboration</span><span class="skill-lvl">Advanced</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+          <div><div class="skill-row"><span class="skill-name">Time Management</span><span class="skill-lvl">Advanced</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+          <div><div class="skill-row"><span class="skill-name">Problem Solving</span><span class="skill-lvl">Intermediate</span></div><div class="skill-bar"><div class="skill-fill" data-w="89"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="skills-lang-row">
+      <div class="skill-group-title">Languages</div>
+      <div class="lang-cards">
+        <div class="lang-card"><div class="lang-flag">BAHASA MELAYU</div><div class="lang-name">Native</div><div class="lang-level"></div></div>
+        <div class="lang-card"><div class="lang-flag">ENGLISH</div><div class="lang-name">Fluent</div><div class="lang-level"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section id="references">
+  <div class="sec-label">08</div>
+  <h2 class="sec-title">References</h2>
+  <div class="ref-grid fade-in">
+    <div class="ref-card">
+      <div class="ref-avatar">01</div>
+      <div>
+        <div class="ref-name">Saipunidzam B Mahamad</div>
+        <div class="ref-title">Senior Lecturer (Computing)</div>
+        <div class="ref-detail">Universiti Teknologi PETRONAS<br>📞 <a href="tel:+6053687408">+605-368 7408</a><br>✉️ <a href="mailto:saipunidzam_mahamad@utp.edu.my">saipunidzam_mahamad@utp.edu.my</a></div>
+      </div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-avatar">02</div>
+      <div>
+        <div class="ref-name">Shariza Mohamed Shuhidan</div>
+        <div class="ref-title">Advisor, UTPHost Club</div>
+        <div class="ref-detail">Universiti Teknologi PETRONAS<br>📞 <a href="tel:+6053688242">+605-368 8242</a><br>✉️ <a href="mailto:sharizs@utp.edu.my">sharizs@utp.edu.my</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label">09</div>
+  <h2 class="sec-title">Let's Connect</h2>
+  <div class="contact-wrapper">
+    <div class="contact-info fade-in">
+      <p>I'm actively seeking an internship from <strong>September 2026 to April 2027</strong>. If you have an opportunity or just want to say hello, feel free to reach out!</p>
+      <div class="contact-links">
+        <a href="tel:0169643013" class="clink"><span class="clink-icon"><img src="phone2.png" alt="Phone" width="20"></span> 016-964 3013</a>
+        <a href="mailto:nur_22011757@utp.edu.my" class="clink"><span class="clink-icon"><img src="email2.png" alt="Email" width="35"></span> nur_22011757@utp.edu.my</a>
+        <a href="https://www.linkedin.com/in/nur-izzati-binti-ismail-152966411" target="_blank" class="clink"><span class="clink-icon"><img src="linkedin.png" alt="LinkedIn" width="20"></span> LinkedIn Profile</a>
+        <a href="https://github.com/Ijjatii" target="_blank" class="clink"><span class="clink-icon"><img src="github.png" alt="GitHub" width="22"></span> GitHub Profile</a>
+      </div>
+    </div>
+    <div class="fade-in">
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group"><label>Your Name</label><input id="form-name" type="text" placeholder="e.g. Ahmad Razif"></div>
+          <div class="form-group"><label>Email Address</label><input id="form-email" type="email" placeholder="e.g. hr@company.com"></div>
+        </div>
+        <div class="form-group"><label>Subject</label><input id="form-subject" type="text" placeholder="e.g. Internship Opportunity"></div>
+        <div class="form-group"><label>Message</label><textarea id="form-message" placeholder="Tell me about the internship opportunity..."></textarea></div>
+        <button type="button" class="btn-send" onclick="sendEmail()"> <img src="email.png" alt="GitHub" width="30"> Send via Email</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Nur Izzati Binti Ismail</span>
+  <span>IT Student · Universiti Teknologi PETRONAS</span>
+  <a href="https://www.linkedin.com/in/nur-izzati-binti-ismail-152966411" target="_blank">LinkedIn ↗</a>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show') })
+}, { threshold: 0.08 })
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el))
+
+const skillObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.querySelectorAll('.skill-fill').forEach(bar => {
+        const w = bar.getAttribute('data-w')
+        setTimeout(() => bar.style.width = w + '%', 200)
+      })
+    }
+  })
+}, { threshold: 0.3 })
+document.querySelectorAll('.skills-wrapper').forEach(el => skillObs.observe(el))
+
+function toggleProject(card) {
+  const allCards = document.querySelectorAll('.proj-card')
+  const isExpanded = card.classList.contains('expanded')
+  allCards.forEach(c => c.classList.remove('expanded'))
+  if(!isExpanded) {
+    card.classList.add('expanded')
+    setTimeout(() => card.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100)
+  }
+}
+
+function moveCarousel(btn, dir){
+  const car = btn.closest('[data-carousel]')
+  const track = car.querySelector('.carousel-track')
+  const slides = track.querySelectorAll('.carousel-slide')
+  const dots = car.querySelectorAll('.carousel-dot')
+  let current = [...dots].findIndex(d => d.classList.contains('active'))
+  current = (current + dir + slides.length) % slides.length
+  track.style.transform = `translateX(-${current * 100}%)`
+  dots.forEach(d => d.classList.remove('active'))
+  dots[current].classList.add('active')
+}
+
+function goToSlide(dot, idx){
+  const car = dot.closest('[data-carousel]')
+  const track = car.querySelector('.carousel-track')
+  const dots = car.querySelectorAll('.carousel-dot')
+  track.style.transform = `translateX(-${idx * 100}%)`
+  dots.forEach(d => d.classList.remove('active'))
+  dots[idx].classList.add('active')
+}
+
+document.querySelectorAll('[data-carousel]').forEach(car => {
+  let startX = 0
+  car.addEventListener('touchstart', e => { startX = e.touches[0].clientX }, {passive:true})
+  car.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX
+    if(Math.abs(diff) > 40){
+      const btn = diff > 0 ? car.querySelector('.next') : car.querySelector('.prev')
+      if(btn) moveCarousel(btn, diff > 0 ? 1 : -1)
+    }
+  })
+})
+function sendEmail() {
+  const name    = document.getElementById('form-name').value.trim()
+  const email   = document.getElementById('form-email').value.trim()
+  const subject = document.getElementById('form-subject').value.trim()
+  const message = document.getElementById('form-message').value.trim()
+
+  if(!name && !subject && !message) {
+    alert('Please fill in at least your name and message before sending.')
+    return
+  }
+
+  const body = `Hi Nur Izzati,\n\nName: ${name}\nEmail: ${email}\n\n${message}\n\nSent from your portfolio website.`
+
+  const mailto = `mailto:nur_22011757@utp.edu.my`
+    + `?subject=${encodeURIComponent(subject || 'Message from Portfolio')}`
+    + `&body=${encodeURIComponent(body)}`
+
+  window.location.href = mailto
+}
+</script>
+</body>
+</html>
